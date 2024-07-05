@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{%block title_page%}logica{%endblock%}
+{%block content_page%}
+<div class="row row-cols-1 row-cols-md-2 g-1">
+                
+    <div class="col">
+        <div class="card text-white bg-dark mb-2">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Dark card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            
+            <div class="d-grid gap-2">
+                <a role="button" class="btn btn-primary btn-success btn-lg" href={% url 'textbook_index'%}>Учебник</a>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card text-white bg-dark mb-2">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Dark card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            
+            <div class="d-grid gap-2">
+                <a role="button" class="btn btn-primary btn-success btn-lg" href={% url 'tests_index' %}>Решить тест</a>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
