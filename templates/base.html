@@ -3,48 +3,59 @@
     <head>
         <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Логика!</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        {%load static%}
+        <link rel="stylesheet" href='{%static 'css/base.css'%}'>
+        <link href={% static "bootstrap-5.0.2-dist/css/bootstrap.min.css" %} rel="stylesheet">
     </head>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
     <body>
-        <div class="p-3 mb-2 bg-primary bg-gradient text-white">
-            {%load static%}
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-            <div class="container-md"> 
-                <br></br>   
-                <figure>
-                    <nav class="navbar bg-light navbar-expand-lg text-dark">
-                        <div class="container-fluid">
-                            <h1>
-                            {%block title_page%}
-                            {% endblock %}
-                            </h1>
+    
+        <script src={%static "bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"%}></script>
+        <div class="container-md"> 
+            <br></br>   
+            <figure class='navigate'>
+                <nav class="navbar navbar-expand-lg text-white">
+                    <div class="container-fluid">
+                        <h1>
+                        <a href={%url 'index_page'%} class='ssilka'>logica</a>
+                        {%block title_page%}
+                        {% endblock %}
+                        </h1>
+                        
+                        
+                        {% if user.is_authenticated %}
+                        
+                            <ul class="nav nav-pills">
+                                <li><a><h1>{{ user }}</h1></a></li>
+                                
+                                <li><a class="btn btn-outline-light btn-lg text-end" role="button">Профиль</a></li>
+                                <li><a class="btn btn-outline-danger btn-lg text-end" role="button" href={%url 'log_out'%}>Выйти</a></li>
+                            </ul>
                             
-                            
-                            {% if user.is_authenticated %}
+                        
+                        {%else%}
                             
                                 <ul class="nav nav-pills">
-                                    <li><a><h1>{{ user }}</h1></a></li>
-                                    <li><a class="btn btn-outline-dark btn-lg text-end" role="button">Профиль</a></li>
-                                    <li><a class="btn btn-outline-danger btn-lg text-end" role="button" href={%url 'log_out'%}>Выйти</a></li>
+                                    <li><a class="btn btn-outline-primary btn-lg" role="button" href={%url 'l'%}>Войти</a></li>
+                                    <a></a>
+                                    <li><a class="btn btn-outline-success btn-lg" role="button" href={%url 's'%}>Зарегистрироваться</a></li>
                                 </ul>
-                                
                             
-                            {%else%}
-                                
-                                    <ul class="nav nav-pills">
-                                        <li><a class="btn btn-outline-primary btn-lg" role="button" href={%url 'l'%}>Войти</a></li>
-                                        <a></a>
-                                        <li><a class="btn btn-outline-success btn-lg" role="button" href={%url 's'%}>Зарегистрироваться</a></li>
-                                    </ul>
-                                
-                            {%endif%}
-                        
-                        </div>
-                    </nav> 
-                </figure>
+                        {%endif%}
+                    
+                    </div>
+                </nav> 
+            </figure>
+            <div class='content'>
                 {%block content_page%}
                 {% endblock %}
             </div>
         </div>
+    
     </body>
 </html>

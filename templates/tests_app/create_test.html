@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+
+{%block title_page%}/ <strong>create_test</strong>{%endblock%}
+
+{% block content_page %}
+    <h1>tests</h1>
+    <form method="POST" class="was-validated" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input name='file' type="file" class="form-control" aria-label="file example" required>
+            <div class="invalid-feedback">Example invalid form file feedback</div>
+          </div>
+        
+          <div class="mb-3">
+            <button class="btn btn-primary" type="submit" required>Submit form</button>
+          </div>
+    </form>
+
+{% endblock %}

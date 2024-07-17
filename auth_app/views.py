@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-def index(request):
-    return redirect('/auth/log_in')
 
 def s(request):
     
@@ -39,7 +37,7 @@ def s(request):
             User.objects.create_user(username, email, password1).save()
             user = authenticate(username=username, password=password1)
             login(request, user)
-            return redirect('/')
+            return redirect(request.META.get('HTTP_REFERER'))
             
     else:
         
@@ -70,4 +68,4 @@ def l(request):
     
 def log_out(request):
     logout(request)
-    return redirect('/')
+    return redirect(request.META.get('HTTP_REFERER'))

@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{%block title_page%}logica{%endblock%}
+{%block title_page%}{%endblock%}
 {%block content_page%}
 <div class="row row-cols-1 row-cols-md-2 g-1">
                 
     <div class="col">
         <div class="card text-white bg-dark mb-2">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             
-            <div class="d-grid gap-2">
-                <a role="button" class="btn btn-primary btn-success btn-lg" href={% url 'textbook_index'%}>Учебник</a>
-            </div>
+            <div class="card-body">
+                <h5 class="card-title">Учебник</h5>
+                <p class="card-text">С помощью учебника вы сможете изучить базу по логике для решения задач ЕГЭ и чуть больше)</p>
+                
+                <div class="d-grid gap-2">
+                    <a role="button" class="btn btn-primary btn-light btn-lg" href={% url 'textbook_index'%}>Читать учебник</a>
+                </div>
             
             </div>
         </div>
@@ -20,14 +20,13 @@
 
     <div class="col">
         <div class="card text-white bg-dark mb-2">
-            <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            
-            <div class="d-grid gap-2">
-                <a role="button" class="btn btn-primary btn-success btn-lg" href={% url 'tests_index' %}>Решить тест</a>
-            </div>
+                <h5 class="card-title">Тесты</h5>
+                <p class="card-text">Тут вы можете закрепить знания по изученным темам. В тестах спрашивается материал из Учебника, поэтому лучше сначало почитать учебник)</p>
+                
+                <div class="d-grid gap-2">
+                    <a role="button" class="btn btn-primary btn-light btn-lg" href={% url 'tests_index' %}>Решить тест</a>
+                </div>
             
             </div>
         </div>

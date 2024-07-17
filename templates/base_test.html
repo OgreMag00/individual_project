@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Логика!</title>
+
+        {%load static%}
+        <link rel="stylesheet" href='{%static 'css/base.css'%}'>
+        <link href={% static "bootstrap-5.0.2-dist/css/bootstrap.min.css" %} rel="stylesheet">
+    </head>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+    <body>
+    
+        <script src={%static "bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"%}></script>
+        <div class="container-md"> 
+            <br></br>   
+            <figure class='navigate'>
+                <nav class="navbar navbar-expand-lg text-white">
+                    <div class="container-fluid">
+                        <h1>
+                        <a href={%url 'index_page'%} class='ssilka'>logica</a>
+                        {%block title_page%}
+                        {% endblock %}
+                        </h1>
+                        
+                        
+                        {% if user.is_authenticated %}
+                        
+                            <ul class="nav nav-pills">
+                                <li><a><h1>{{ user }}</h1></a></li>
+                                <li><a class="btn btn-outline-light btn-lg text-end" role="button">Профиль</a></li>
+                                <li><a class="btn btn-outline-danger btn-lg text-end" role="button" href={%url 'log_out'%}>Выйти</a></li>
+                            </ul>
+                            
+                        
+                        {%else%}
+                            
+                                <ul class="nav nav-pills">
+                                    <li><a class="btn btn-outline-primary btn-lg" role="button" href={%url 'l'%}>Войти</a></li>
+                                    <a></a>
+                                    <li><a class="btn btn-outline-success btn-lg" role="button" href={%url 's'%}>Зарегистрироваться</a></li>
+                                </ul>
+                            
+                        {%endif%}
+                    
+                    </div>
+                </nav> 
+            </figure>
+            <div class='content text-white'>
+                {%block content_page%}
+                {% endblock %}
+            </div>
+        </div>
+    
+    </body>
+</html>
