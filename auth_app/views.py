@@ -59,7 +59,7 @@ def l(request):
                 return render(request, 'auth_app/log_in.html', {'error':'Данного пользователя не сущестует'})
             else:
                 login(request, user)    
-                return redirect('/')
+                return redirect(request.META.get('HTTP_REFERER'))
         except KeyError:
             return render(request, 'auth_app/log_in.html', {'error':'Заполните все поля'})
 

@@ -2,49 +2,54 @@
 
 {% block title_page %}/ <strong>test 1</strong>{% endblock %}
 
-{% block content_page %}<h1>tests</h1>
-    <div class='question'>
-        {% for i in test %}
+{% block content_page %}
+    <div class='container-fluid question'>
         <form method='POST'>
             <br></br>
-            <h3>{{ i.q_title }}</h3>
-        
+
+            {% for i in test %}
+            <div class='container text-white'>
+                <h3>{{ i.q_title }}</h3>
             
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name={{i.q_num}} value="answer1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        {{i.a1}}
-                    </label>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name={{i.q_num}} value="answer1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{i.a1}}
+                        </label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name={{i.q_num}} value="answer2">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{i.a2}}
+                        </label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name={{i.q_num}} value="answer3">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{i.a3}}
+                        </label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name={{i.q_num}} value="answer4">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{i.a4}}
+                        </label>
+                    </div>
                 </div>
-            
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name={{i.q_num}} value="answer2">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        {{i.a2}}
-                    </label>
-                </div>
-            
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name={{i.q_num}} value="answer3">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        {{i.a3}}
-                    </label>
-                </div>
-            
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name={{i.q_num}} value="answer4">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        {{i.a4}}
-                    </label>
-                </div>
+
+                
+                <br></br>
+                {%endfor%}
+                <button class="btn btn-primary" type="submit">завершить тест</button>
             </div>
 
+        
             
-            <br></br>
-
-        {%endfor%}
-            
-            <button class="btn btn-primary mb-3" type="submit">завершить тест</button>
+           
             
 
         {% csrf_token %}

@@ -16,11 +16,11 @@
     <body>
     
         <script src={%static "bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"%}></script>
-        <div class="container-md"> 
+        <div class="container"> 
             <br></br>   
             <figure class='navigate'>
                 <nav class="navbar navbar-expand-lg text-white">
-                    <div class="container-fluid">
+                    <div class="container">
                         <h1>
                         <a href={%url 'index_page'%} class='ssilka'>logica</a>
                         {%block title_page%}
@@ -50,11 +50,11 @@
                     </div>
                 </nav> 
             </figure>
-            <div class='content text-white'>
+            <div class='container text-white'>
                 {%block content_page%}
                 {% endblock %}
             </div>
         </div>
-    
+        
     </body>
 </html>
