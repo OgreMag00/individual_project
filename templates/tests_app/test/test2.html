@@ -1,0 +1,66 @@
+{% extends 'base_test.html' %}
+
+{% block title_page %}/ <strong>ЗАДАНИЕ №2</strong>{% endblock %}
+
+{% block content_page %}
+{%load static%}
+<div class='card bg-dark'>
+    <div class='card-body'>
+        <h2>(ЕГЭ-2024) Логическая функция F задаётся выражением ((x → y) → z) ˅ ¬w. На рисунке приведён частично заполненный фрагмент таблицы истинности функции F, содержащий неповторяющиеся строки. Определите, какому столбцу таблицы истинности функции F соответствует каждая из переменных x, y, z, w.
+            <br></br><img src={% static 'images/t2_1.png'%} alt='table'><br></br>
+            В ответе напишите буквы x, y, z, w в том порядке, в котором идут соответствующие им столбцы. Буквы в ответе пишите подряд, никаких разделителей между буквами ставить не нужно</h2>
+            <h3><input type="button" id="hider" value="Показать ответ" /><div id="text" hidden=true>xywz</div></h3>
+
+            <script>
+        
+            document.getElementById('hider').onclick = function() {
+                if (document.getElementById('text').hidden === false){
+                    document.getElementById('text').hidden = true;
+                } else {
+                    document.getElementById('text').hidden = false;
+                }  
+            }
+        </script>
+    </div>
+</div>
+<br></br>
+<div class='card bg-dark'>
+    <div class='card-body'>
+        <h2>(ЕГЭ-2024) Логическая функция F задаётся выражением ¬(x → w) ˅ (y → z) ˅ ¬y. На рисунке приведён частично заполненный фрагмент таблицы истинности функции F, содержащий неповторяющиеся строки. Определите, какому столбцу таблицы истинности функции F соответствует каждая из переменных x, y, z, w.
+            <br></br><img src={% static 'images/t2_2.png'%} alt='table'><br></br>
+            В ответе напишите буквы x, y, z, w в том порядке, в котором идут соответствующие им столбцы. Буквы в ответе пишите подряд, никаких разделителей между буквами ставить не нужно</h2>
+            <h3><input type="button" id="hider2" value="Показать ответ" /><div id="text2" hidden=true>yxwz</div></h3>
+
+            <script>
+                
+            document.getElementById('hider2').onclick = function() {
+                if (document.getElementById('text2').hidden === false){
+                    document.getElementById('text2').hidden = true;
+                } else {
+                    document.getElementById('text2').hidden = false;
+                }  
+            }
+        </script>
+    </div>
+</div>
+<br></br>
+<div class='card bg-dark'>
+    <div class='card-body'>
+        <h2>(А. Богданов) Логическая функция F задаётся выражением w ∧ ((z ∨ y) ≡ (z ∧ x)). На рисунке приведён частично заполненный фрагмент таблицы истинности функции F, содержащий неповторяющиеся строки. Определите, какому столбцу таблицы истинности функции F соответствует каждая из переменных x, y, z, w.
+            <br></br><img src={% static 'images/t2_3.png'%} alt='table'><br></br>
+            В ответе напишите буквы x, y, z, w в том порядке, в котором идут соответствующие им столбцы. Буквы в ответе пишите подряд, никаких разделителей между буквами ставить не нужно</h2>
+            <h3><input type="button" id="hider3" value="Показать ответ" /><div id="text3" hidden=true>xwzy</div></h3>
+
+            <script>
+                
+            document.getElementById('hider3').onclick = function() {
+                if (document.getElementById('text3').hidden === false){
+                    document.getElementById('text3').hidden = true;
+                } else {
+                    document.getElementById('text3').hidden = false;
+                }  
+            }
+        </script>
+    </div>
+</div>
+{%endblock%}

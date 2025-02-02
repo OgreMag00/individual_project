@@ -10,7 +10,6 @@ def s(request):
     if request.method == 'POST':
         res = request.POST  #{'username': ['ewewewwe'], 'password': ['ewweew'], 'email': ['yegor_poatpov@bk.ru']}
         username = str(res.get('username'))
-        email = res.get('email')
         password1 = str(res.get('password1'))
         password2 = str(res.get('password2'))
         
@@ -18,9 +17,7 @@ def s(request):
         if username is None:
             return HttpResponse("<h3>Введите имя пользователя</h3>")
         
-        elif email is None:
-            return render(request, 'auth_app/sign_in.html', {'error': 'Введите эл. почту'})
-        
+
         elif password1 is None or password2 is None:
             return render(request, 'auth_app/sign_in.html', {'error': 'Введите пароль'})
         
@@ -30,14 +27,12 @@ def s(request):
         elif User.objects.filter(username=username).first() != None:
             return render(request, 'auth_app/sign_in.html', {'error': 'Имя пользователь уже занято'})
         
-        elif User.objects.filter(email=res.get('email')).first() != None:
-            return render(request, 'auth_app/sign_in.html', {'error': 'эл. почта уже занятa'})
-        
+
         else:
-            User.objects.create_user(username, email, password1).save()
+            User.objects.create_user(username,'None@bk.ru', password1).save()
             user = authenticate(username=username, password=password1)
             login(request, user)
-            return redirect(request.META.get('HTTP_REFERER'))
+            return redirect('/')
             
     else:
         
@@ -59,7 +54,7 @@ def l(request):
                 return render(request, 'auth_app/log_in.html', {'error':'Данного пользователя не сущестует'})
             else:
                 login(request, user)    
-                return redirect(request.META.get('HTTP_REFERER'))
+                return redirect('/')
         except KeyError:
             return render(request, 'auth_app/log_in.html', {'error':'Заполните все поля'})
 

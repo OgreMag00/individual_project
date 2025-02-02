@@ -37,7 +37,42 @@ context = [[{"q_num": '1',
                 "a2": "===",
                 "a3": "!=",
                 "a4": "==",
-                "answer": "answer4"},]]
+                "answer": "answer4"},],[],
+                [{"q_num": '1',
+                "q_title": "Что из этого конъюнкция? (excel)", 
+                "a1": "=И()",
+                "a2": "=КОНЬЮН()",
+                "a3": "=ИЛИ()",
+                "a4": "=ИСКЛИ()",
+                "answer": "answer1"},
+                {"q_num": '2',
+                "q_title": "Что из этого дизъюнкция? (excel)", 
+                "a1": "=И()",
+                "a2": "=ИЛИ()",
+                "a3": "=ВОЗМОЖНО()",
+                "a4": "=ДИЗ()",
+                "answer": "answer2"},
+                {"q_num": '3',
+                "q_title": "Какая функция является инверсией? (excel)", 
+                "a1": "=Инверсия()",
+                "a2": "=НЕТ()",
+                "a3": "=НЕ()",
+                "a4": "=Нул()",
+                "answer": "answer3"},
+                {"q_num": '4',
+                "q_title": "Какой функцией можно проверить наличие в ячейке значения?", 
+                "a1": "=imp()",
+                "a2": "=НУЛЕВОЕ",
+                "a3": "=ЕПУСТО()",
+                "a4": "=Пусто()",
+                "answer": "answer3"},
+                {"q_num": '5',
+                "q_title": "Что является тождеством? (excel)", 
+                "a1": "?=",
+                "a2": "===",
+                "a3": "==",
+                "a4": "=",
+                "answer": "answer4"}],]
 def index(request):
     return render(request, 'tests_app/index.html')
 
@@ -45,8 +80,11 @@ def index(request):
 def test(request, test_num):
     
     if request.method != 'POST':
-        if test_num <= len(context):
-            return render(request, f'tests_app/test/test.html', {'test':context[test_num-1], 'test_num': test_num})
+        if test_num <= len(context) and test_num > 0:
+            if test_num == 2:
+                return render(request, 'tests_app/test/test2.html')
+            else:
+                return render(request, f'tests_app/test/test.html', {'test':context[test_num-1], 'test_num': test_num})
         else:
             raise Http404()
 

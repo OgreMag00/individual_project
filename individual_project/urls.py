@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('main_app.urls'), name='main_app'),
     path('textbook/', include('textbook_app.urls'), name='textbook_app'),
     path('tests/', include('tests_app.urls'), name='tests_app'),
-    path('auth/', include('auth_app.urls'), name='auth_app')
+    path('auth/', include('auth_app.urls'), name='auth_app'),
+    path('profile/', include('profile_app.urls'), name='profile_app')
 
 ]

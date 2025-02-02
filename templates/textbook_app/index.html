@@ -2,4 +2,56 @@
 
 {% block title_page %}/ <strong>textbook</strong>{% endblock %}
 
-{% block content_page %}<h1>textbook</h1>{% endblock %}
+{% block content_page %}<h1>textbook</h1>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="card text-white bg-dark mb-1">
+        <div class="card-body">
+            <h5 class="card-title">Глава 1</h5>
+            <p class="card-text">Понятие логики и базовые логические операции</p>
+            
+            <div class="d-grid gap-2">
+                <a role="button" class="btn btn-primary btn-light btn-lg" href='1'>Читать</a>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="card text-white bg-dark mb-1 row-2">
+        <div class="card-body">
+            <h5 class="card-title">Решение задачи 2 ЕГЭ</h5>
+            <p class="card-text">Понятие логики и базовые логические операции</p>
+            
+            <div class="d-grid gap-2">
+                <a role="button" class="btn btn-primary btn-light btn-lg" href='2'>Читать</a>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="card text-white bg-dark mb-1">
+        <div class="card-body">
+            <h5 class="card-title">Глава 2</h5>
+            <p class="card-text">Логические операции в excel </p>
+            
+            <div class="d-grid gap-2">
+                <a role="button" class="btn btn-primary btn-light btn-lg" href='3'>Читать</a>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="card text-white bg-dark mb-1">
+        <div class="card-body">
+            <h5 class="card-title">Решение задачи 9 ЕГЭ</h5>
+            
+            <p class="card-text">Логические операции в excel </p>
+            <div class="d-grid gap-2">
+                <a role="button" class="btn btn-primary btn-light btn-lg" href='4'>Читать</a>
+            </div>
+        
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

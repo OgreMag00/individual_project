@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title_page %}/ <strong>profile</strong>{% endblock %}
+
+{% block content_page %}
+
+{% for d in data%}
+    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <h3><div class="card-header">test {{d.test}}</div></h3>
+        <div class="card-body">
+        <h4 class="card-title">Результат <b>{{ d.result }}</b></h4>
+        </div>
+    </div>
+{%endfor%}
+
+{% endblock %}

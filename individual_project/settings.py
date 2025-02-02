@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'main_app',
     'textbook_app',
     'tests_app',
-    'auth_app'
+    'auth_app',
+    'profile_app'
 ]
 
 MIDDLEWARE = [
